@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage",
-    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+    "test-watch": "jest --watchAll --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,9 @@
     "url": "https://github.com/antonella-401-advanced-javascript/data-structures-and-algorithms/issues"
   },
   "homepage": "https://github.com/antonella-401-advanced-javascript/data-structures-and-algorithms#readme",
-  "dependencies": {
-    "eslint": "^6.4.0"
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "jest": "^24.9.0"
   }
 }
