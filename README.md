@@ -7,3 +7,6 @@
 
 ### Shift Array
 [Challenge 02](challenges/arrayShift)
+
+### Binary Search
+[Challenge 02](challenges/arrayBinarySearch)
