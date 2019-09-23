@@ -3,6 +3,6 @@ Create a linked list.
 ## Challenge
 Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node. Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created. At no time should an exception or stack trace be shown to the end user. Catch and handle any such exceptions and return a printed value or operation which cleanly represents the state and either stops execution cleanly, or provides the user with clear direction and output.
 ## Approach & Efficiency
-
+Create the two classes needed for the challenge, which are the Node class, the one that will set the value stored in the Node and a pointer to the next Node, the second class, the LinkedList class, will have three different methods that will add, check if value is already included and return all values on the linked list. The insert method will add the element and make it the head if the list is empty, if the list is not empty it will iterate to the end of list and add the element at the end. The second method, includes, will iterate through the list to see if the value that is given is inside the list, if so, it will return true, else it returns false. The third method will return all values, it iterates through the list and pushes the value of each into the result array, returning a joined string list of all the values.
 ## Solution
 ![Whiteboard Image](../assets/linked-list.jpg)

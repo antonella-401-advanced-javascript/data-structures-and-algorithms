@@ -9,4 +9,7 @@
 [Challenge 02](challenges/arrayShift)
 
 ### Binary Search
-[Challenge 02](challenges/arrayBinarySearch)
+[Challenge 03](challenges/arrayBinarySearch)
+
+### Linked List
+[challenge 04](challenges/linkedList)

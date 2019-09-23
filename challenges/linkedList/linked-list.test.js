@@ -11,34 +11,42 @@ describe('Linked list', () => {
   });
 
   it('inserts node', () => {
-    const val = 'testing1';
     const testList = new LinkedList();
+    const val = 'testing1';
     testList.insert(val);
     
     expect(testList.size).toBe(1);
   });
 
   it('inserts  multiple nodes', () => {
+    const testList = new LinkedList();
     const val = 'testing1';
     const val2 = 9;
-    const testList = new LinkedList();
     testList.insert(val);
     testList.insert(val2);
     
     expect(testList.size).toBe(2);
   });
 
-  it('will return true if the value exists', () => {
-    const test = 'test';
+  it('will point the first node as head property', () => {
     const testList = new LinkedList();
+    const val = 'head';
+    testList.insert(val);
+
+    expect(testList.head.value).toBe(val);
+  });
+
+  it('will return true if the value exists', () => {
+    const testList = new LinkedList();
+    const test = 'test';
 
     testList.insert(test);
     expect(testList.includes(test)).toBe(true);
   });
 
   it('will return false if no value found', () => {
-    const invalid = 'potato';
     const testList = new LinkedList();
+    const invalid = 'potato';
 
     expect(testList.includes(invalid)).toBe(false);
   });
