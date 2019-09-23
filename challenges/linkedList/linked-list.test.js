@@ -62,4 +62,37 @@ describe('Linked list', () => {
 
     expect(testList.toString()).toBe('test, test 2, 23');
   });
+
+  it('Adds a new node with the given value to the end of the list', () => {
+    const testList = new LinkedList();
+    const tail = 5;
+    testList.append(1);
+    testList.append(3);
+    testList.append(2);
+    testList.append(tail);
+
+    expect(testList.toString()).toEqual('1, 3, 2, 5');
+  });
+
+  it('Add a new node with the given newValue immediately before the first value node', () => {
+    const testList = new LinkedList();
+    testList.append(1);
+    testList.append(3);
+    testList.append(2);
+    testList.append(4);
+
+    testList.insertBefore(3, 2);
+
+    expect(testList.toString()).toEqual('1, 3, 2, 2, 4');
+  });
+
+  it('dd a new node with the given newValue immediately after the first value node', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+    testList.insert(3);
+    testList.insert(2);
+    testList.insertAfter(3, 7);
+    console.log(testList.toString());
+    expect(testList.toString()).toEqual('1, 3, 7, 2');
+  });
 });
