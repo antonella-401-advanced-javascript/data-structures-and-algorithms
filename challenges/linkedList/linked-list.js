@@ -13,7 +13,19 @@ class LinkedList {
 
   insert(value) {
     const node = new Node(value);
-    this.head = node;
+    let currentNode;
+
+    if(this.head === null) {
+      this.head = node;
+    }
+    else {
+      currentNode = this.head;
+
+      while(currentNode.next) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = node;
+    }
     this.size++;
     return this.head;
   }
@@ -33,13 +45,13 @@ class LinkedList {
 
   toString() {
     let currentNode = this.head;
-    let res = '';
+    let res = [];
 
     while(currentNode) {
-      res = res + currentNode.value;
+      res.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    return res;
+    return res.join(', ');
   }
 }
 
