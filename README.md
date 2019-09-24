@@ -13,3 +13,6 @@
 
 ### Linked List
 [challenge 04](challenges/linkedList)
+
+### Linked List 2
+[challenge 05](challenges/LinkedList)

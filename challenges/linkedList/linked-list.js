@@ -1,6 +1,5 @@
 class Node {
   constructor(value) {
-    this.previous = null;
     this.value = value;
     this.next = null;
   }
@@ -71,41 +70,44 @@ class LinkedList {
   }
 
   insertBefore(value, newVal) {
-    if(value > 0 && newVal > this.size) {
-      return false;
+    let newNode = new Node(newVal);
+    let node = this.head;
+    
+    if(node.value === value) {
+      this.insert(newVal);
     }
-    else {
-      let node = new Node(newVal);
-      let current;
-      let previous;
-
-      current = this.head;
-
-      if(value === 0) {
-        node.next = this.head;
-        this.head = node;
+    while(node.next) {
+      if(!this.head) {
+        this.head = new Node(newVal);
+        return;
       }
-      else {
-        current = this.head;
-        let list = 0;
 
-        while(list < value) {
-          list++;
-          previous = current;
-          current = current.next;
-        }
-        node.next = current;
-        previous.next = node;
+      if(node.next.value === value) {
+        newNode.next = node.next;
+        node.next = newNode;
+        node = newNode;
       }
-      this.size++;
-      return node;
+      node = node.next;
     }
   }
 
   insertAfter(value, newVal) {
-    const node = new Node(newVal);
-    node.next = value.next;
-    value.next = node; 
+    let node = this.head;
+    while(node) {
+      if(!this.head) {
+        this.head = new Node(newVal);
+        return;
+      }
+
+      if(node.value === value) {
+        let newNode = new Node(newVal);
+        newNode.next = node.next;
+        node.next = newNode; 
+
+        return node;
+      }
+      node = node.next;
+    }
   }
 }
 

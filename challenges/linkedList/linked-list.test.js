@@ -83,16 +83,15 @@ describe('Linked list', () => {
 
     testList.insertBefore(3, 2);
 
-    expect(testList.toString()).toEqual('1, 3, 2, 2, 4');
+    expect(testList.toString()).toEqual('1, 2, 3, 2, 4');
   });
 
-  it('dd a new node with the given newValue immediately after the first value node', () => {
+  it('Add a new node with the given newValue immediately after the first value node', () => {
     const testList = new LinkedList();
     testList.insert(1);
     testList.insert(3);
     testList.insert(2);
     testList.insertAfter(3, 7);
-    console.log(testList.toString());
     expect(testList.toString()).toEqual('1, 3, 7, 2');
   });
 });
