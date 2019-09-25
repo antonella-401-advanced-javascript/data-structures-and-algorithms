@@ -94,4 +94,55 @@ describe('Linked list', () => {
     testList.insertAfter(3, 7);
     expect(testList.toString()).toEqual('1, 3, 7, 2');
   });
+
+  it('gets kth from end', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+    testList.insert(2);
+    testList.insert(3);
+    testList.insert(4);
+    testList.insert(5);
+
+    expect(testList.kthFromEnd(testList, 2)).toBe(3);
+  });
+
+  it('Where k is greater than the length of the linked list', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+    testList.insert(2);
+    testList.insert(3);
+    testList.insert(4);
+    testList.insert(5);
+
+    expect(() => testList.kthFromEnd(testList, 6)).toThrowError('input is too big');
+  });
+
+  it('Where k and the length of the list are the same', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+    testList.insert(2);
+    testList.insert(3);
+    testList.insert(4);
+    testList.insert(5);
+
+    expect(() => testList.kthFromEnd(testList, 5)).toThrowError('input cannot be the same length as list');
+  });
+  
+  it('Where k is not a positive integer', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+    testList.insert(2);
+    testList.insert(3);
+    testList.insert(4);
+    testList.insert(5);
+    
+    expect(() => testList.kthFromEnd(testList, -1)).toThrowError('input is way too small');
+  });
+
+  it('here the linked list is of a size 1', () => {
+    const testList = new LinkedList();
+    testList.insert(1);
+
+    expect(() => testList.kthFromEnd(testList, 1)).toThrowError('make list longer');
+  });
 });

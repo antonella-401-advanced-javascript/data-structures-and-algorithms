@@ -109,6 +109,42 @@ class LinkedList {
       node = node.next;
     }
   }
+
+  kthFromEnd(ll, k) {
+    let node = ll.head;
+    let index = 0;
+    let res;
+    console.log(ll);
+    if(k < 0) {
+      throw new Error('input is way too small');
+    }
+
+    if(ll.size === 1) {
+      throw new Error('make list longer');
+    }
+
+    if(k === ll.size) {
+      throw new Error('input cannot be the same length as list');
+    }
+
+    if(k > ll.size) {
+      throw new Error('input is too big');
+    }
+
+    while(node) {
+
+      if(index === k) {
+        res = ll.head;
+      }
+      else if(index - k > 0) {
+        res = res.next;
+      }
+      index++;
+
+      node = node.next;
+    }
+    return res.value;
+  }
 }
 
 module.exports = {
