@@ -16,3 +16,6 @@
 
 ### Linked List 2
 [challenge 05](challenges/LinkedList)
+
+### Linked List 3
+[challenge 05](challenges/LinkedList)
