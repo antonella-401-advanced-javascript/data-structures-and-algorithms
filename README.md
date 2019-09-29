@@ -19,3 +19,6 @@
 
 ### Linked List 3
 [challenge 05](challenges/LinkedList)
+
+### Merge Linked List
+[challenge 05](challenges/llMerge)
