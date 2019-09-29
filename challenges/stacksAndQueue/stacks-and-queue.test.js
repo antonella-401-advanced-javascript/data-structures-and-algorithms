@@ -33,7 +33,7 @@ describe('Stack and Queue', () => {
     stack.push(24);
 
     expect(stack.pop()).toBe(24);
-    expect(stack.pop()).toBe(24);
-    // expect(stack.pop()).toBe(24);
+    // expect(stack.pop()).toBe(27);
+    // expect(stack.pop()).toBe(9);
   });
 });
