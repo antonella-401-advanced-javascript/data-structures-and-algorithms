@@ -22,3 +22,6 @@
 
 ### Merge Linked List
 [challenge 05](challenges/llMerge)
+
+### Stacks and Queues
+[challenge 05](challenges/stacksAndQueue)
