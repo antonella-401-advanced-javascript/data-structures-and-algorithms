@@ -1,85 +1,39 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+const { Node, Stack, Queue } = require('./stacks-and-queue');
 
-class Stack {
-  constructor() {
-    this.top = null;
-  }
+describe('Stack and Queue', () => {
+  it('Can successfully push onto a stack', () => {
+    const top = new Stack();
+    
+    top.push(1);
+    expect(top).toEqual({ 'top': 1 });
+  });
 
-  push(value) {
-    const node = new Node(value);
+  it('Can successfully push multiple values onto a stack', () => {
+    const multiTop = new Stack();
+    multiTop.push('does');
+    multiTop.push('this');
+    multiTop.push('work');
 
-    if(this.top === null) {
-      this.top = node;
-    }
-    else {
-      node.next = this.top;
-      this.top = node;
-    }
-  }
+    expect(multiTop).toEqual({ 'top': 'work' });
+  });
 
-  pop() {
-    if(this.top === null) {
-      console.log('no items to pop');
-    }
+  it('Can successfully pop off the stack', () => {
+    const stack = new Stack();
+    stack.push(9);
+    stack.push(27);
+    stack.push(24);
 
-    let element = this.top.value;
-    this.top = this.top.next;
-    return element;
-  }
+    expect(stack.pop()).toBe(24);
+  });
 
-  peek() {
-    if(this.top === null) {
-      console.log('stack has no values to peek');
-    }
+  it('Can successfully empty a stack after multiple pops', () => {
+    const stack = new Stack();
+    stack.push(9);
+    stack.push(27);
+    stack.push(24);
 
-    return this.top.value;
-  }
-}
-
-class Queue {
-  constructor() {
-    this.front = null;
-  }
-
-  enqueue(value) {
-    const node = new Node(value);
-
-    if(this.front === null) {
-      this.front = node;
-    }
-    else {
-      let curr = this.front;
-      while(curr.next) {
-        curr = curr.next;
-      }
-      curr.next = node;
-    }
-  }
-
-  dequeue() {
-    let newFront;
-    if(this.front === null) {
-      console.log('queue is empty');
-    }
-    else {
-      newFront = this.front.value;
-      this.front = this.front.next;
-    }
-    return newFront;
-  }
-
-  peek() {
-    return this.front.value;
-  }
-}
-
-module.exports = {
-  Node,
-  Stack,
-  Queue
-};
+    expect(stack.pop()).toBe(24);
+    expect(stack.pop()).toBe(24);
+    // expect(stack.pop()).toBe(24);
+  });
+});
