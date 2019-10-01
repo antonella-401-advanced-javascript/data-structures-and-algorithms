@@ -39,4 +39,18 @@ describe('Stack and Queue', () => {
     expect(stack.pop()).toBe(9);
     expect(stack.pop()).toBe(null);
   });
+
+  it('Can successfully peek the top item on the stack', () => {
+    const stack = new Stack();
+    stack.push(9);
+    stack.push(27);
+    stack.push(24);
+
+    expect(stack.peek()).toBe(24);
+  });
+  
+  it('Can successfully instantiate an empty stack', () => {
+    const stack = new Stack();
+    expect(stack.top).toBe(null);
+  });
 });
