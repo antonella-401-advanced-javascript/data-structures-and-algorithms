@@ -13,20 +13,23 @@ class Stack {
   push(value) {
     const node = new Node(value);
 
-    if(this.top === null) {
-      this.top = node.value;
+    if(!this.top) {
+      this.top = node;
     }
     else {
       node.next = this.top;
-      this.top = node.value;
+      this.top = node;
     }
-    return this.top;
   }
 
   pop() {
-    let element = this.top;
-    while(this.top) {
+    let element;
+    if(this.top) {
+      element = this.top.value;
       this.top = this.top.next;
+    }
+    else {
+      element = null;
     }
     return element;
   }

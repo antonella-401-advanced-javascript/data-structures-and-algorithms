@@ -2,10 +2,10 @@ const { Node, Stack, Queue } = require('./stacks-and-queue');
 
 describe('Stack and Queue', () => {
   it('Can successfully push onto a stack', () => {
-    const top = new Stack();
+    const test = new Stack();
     
-    top.push(1);
-    expect(top).toEqual({ 'top': 1 });
+    test.push(1);
+    expect(test.top.value).toBe(1);
   });
 
   it('Can successfully push multiple values onto a stack', () => {
@@ -14,7 +14,9 @@ describe('Stack and Queue', () => {
     multiTop.push('this');
     multiTop.push('work');
 
-    expect(multiTop).toEqual({ 'top': 'work' });
+    expect(multiTop.top.value).toEqual('work');
+    expect(multiTop.top.next.value).toBe('this');
+    expect(multiTop.top.next.next.value).toBe('does');
   });
 
   it('Can successfully pop off the stack', () => {
@@ -33,7 +35,8 @@ describe('Stack and Queue', () => {
     stack.push(24);
 
     expect(stack.pop()).toBe(24);
-    // expect(stack.pop()).toBe(27);
-    // expect(stack.pop()).toBe(9);
+    expect(stack.pop()).toBe(27);
+    expect(stack.pop()).toBe(9);
+    expect(stack.pop()).toBe(null);
   });
 });
