@@ -28,3 +28,6 @@
 
 ### Queues with Stacks
 [challenge 09](challenges/queueWithStacks)
+
+### Fifo Animal Shelter
+[challenge 10](challenges/fifoAnimalShelter)
