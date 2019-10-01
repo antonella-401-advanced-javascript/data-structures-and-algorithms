@@ -18,10 +18,13 @@
 [challenge 05](challenges/LinkedList)
 
 ### Linked List 3
-[challenge 05](challenges/LinkedList)
+[challenge 06](challenges/LinkedList)
 
 ### Merge Linked List
-[challenge 05](challenges/llMerge)
+[challenge 07](challenges/llMerge)
 
 ### Stacks and Queues
-[challenge 05](challenges/stacksAndQueue)
+[challenge 08](challenges/stacksAndQueue)
+
+### Queues with Stacks
+[challenge 09](challenges/queueWithStacks)
