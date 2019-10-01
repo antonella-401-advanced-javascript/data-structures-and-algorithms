@@ -65,8 +65,8 @@ class Queue {
 
   dequeue() {
     let newFront;
-    if(this.front === null) {
-      console.log('queue is empty');
+    if(!this.front) {
+      return 'queue is empty';
     }
     else {
       newFront = this.front.value;
