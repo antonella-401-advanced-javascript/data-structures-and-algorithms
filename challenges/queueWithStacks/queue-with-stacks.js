@@ -1,4 +1,4 @@
-const { Stack } = require('../stacksAndQueue');
+const { Stack } = require('./stacks-and-queue');
 
 class PseudoQueue {
   constructor() {
