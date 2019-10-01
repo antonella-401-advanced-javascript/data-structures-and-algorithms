@@ -19,5 +19,7 @@ describe('Pseudoqueue', () => {
     pseudo.enqueue(24);
 
     expect(pseudo.dequeue()).toBe(2);
+    expect(pseudo.dequeue()).toBe(10);
+    expect(pseudo.dequeue()).toBe(24);
   });
 });

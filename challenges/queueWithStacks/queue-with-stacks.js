@@ -11,10 +11,15 @@ class PseudoQueue {
   }
 
   dequeue() {
-    if(this.stackOut.top === null) {
-      this.stackOut.push(this.stackIn.pop());
-    }
+    if(!this.stackOut.top) {
+      let element = this.stackIn.pop();
 
+      while(this.stackIn.top) {
+        this.stackOut.push(element);
+        element = this.stackIn.pop();
+      }
+      return element;
+    }
     return this.stackOut.pop();
   }
 }
