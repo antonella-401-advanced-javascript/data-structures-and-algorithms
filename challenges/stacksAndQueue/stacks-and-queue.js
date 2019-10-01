@@ -36,7 +36,7 @@ class Stack {
 
   peek() {
     if(this.top === null) {
-      console.log('stack has no values to peek');
+      return 'stack has no values to peek';
     }
 
     return this.top.value;
