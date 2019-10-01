@@ -11,18 +11,11 @@ class PseudoQueue {
   }
 
   dequeue() {
-    let element = this.inStack.top;
-    let poppedIn = this.inStack.pop();
-    let poppedOut = this.outStack.pop();
+    if(this.stackOut.top === null) {
+      this.stackOut.push(this.stackIn.pop());
+    }
 
-    while(this.inStack.top) {
-      this.outStack.push(poppedIn);
-    }
-    this.inStack.pop();
-    while(this.outStack.peek()) {
-      this.inStack.push(poppedOut);
-    }
-    return element;
+    return this.stackOut.pop();
   }
 }
 
