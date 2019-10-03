@@ -3,7 +3,6 @@ const { Stack } = require('../stacksAndQueue/stacks-and-queue');
 class AnimalShelter {
   constructor() {
     this.animalQueue = new Stack();
-    this.front = null;
   }
 
   enqueue(animal) {
