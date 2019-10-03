@@ -26,10 +26,8 @@ describe('Animal Shelter Queue', () => {
     testShelter.enqueue('dog');
     testShelter.enqueue('cat');
     testShelter.enqueue('Dog');
-    testShelter.enqueue('Cat');
+    testShelter.enqueue('dog');
 
-    const home = testShelter.dequeue('cat');
-
-    expect(home).toBe();
+    expect(testShelter.dequeue('cat')).toEqual('cat');
   });
 });

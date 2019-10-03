@@ -3,7 +3,7 @@ const { Stack } = require('../stacksAndQueue/stacks-and-queue');
 class AnimalShelter {
   constructor() {
     this.animalQueue = new Stack();
-    this.animalOut = new Stack();
+    this.front = null;
   }
 
   enqueue(animal) {
@@ -16,28 +16,22 @@ class AnimalShelter {
   }
 
   dequeue(pref) {
-    let animal = this.front;
-
-    if(!pref) {
+    const lower = pref.toLowerCase();
+    if(lower !== 'dog' && lower !== 'cat') {
       return null;
     }
 
-    if(!this.animalOut.top) {
-      let element = this.animalQueue.pop();
-
-      while(this.animalQueue.top) {
-        this.animalOut.push(element);
-        element = this.animalQueue.pop();
-      }
-      return element;
+    let res;
+    let curr = this.animalQueue.top;
+    let prev;
+    while(curr.value !== lower) {
+      prev = curr;
+      curr = curr.next;
+      prev.next = curr.next;
     }
 
-    while(pref) {
-      if(pref.toLowerCase() === animal.value) {
-        return animal.value;
-      }
-      animal = animal.next;
-    }
+    res = curr.value;
+    return res;
   }
 }
 
