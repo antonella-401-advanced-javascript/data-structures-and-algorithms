@@ -1,4 +1,4 @@
-const { Stack } = require('../stacksAndQueues/stacks-and-queues');
+const { Stack } = require('./stacks-and-queue');
 
 const multiBracketValidation = (str) => {
   const stack = new Stack();

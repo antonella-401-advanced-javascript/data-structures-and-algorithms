@@ -1,11 +1,11 @@
 # Multi Bracket Validation
 We will be creating a multi-bracket validation
 ## Challenge
-The challenge entails creating a multiBracketValidation function.
+The challenge entails creating a multibracket validation function that returns a boolean.
 ## Approach & Efficiency
-function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
-* Round Brackets: ()
-* Square Brackets: []
-* Curly Brackets: {}
+fThe function takes a string as its only argument, splits it, compares to see if there are matching opening and closing brackets and will return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
+Round Brackets : ()
+Square Brackets : []
+Curly Brackets : {}
 ## Solution
-![Whiteboard Image](../assets/animal.jpg)
+![Whiteboard Image](../assets/multibracket.jpg)
