@@ -34,3 +34,9 @@
 
 ### Multi-bracket Validation
 [challenge 10](challenges/multiBracketValidation)
+
+### Binary Tree and BST Implementation
+[challenge 10](challenges/tree)
+
+### FizzBuzz
+[challenge 10](challenges/fizzBuzzTree)
