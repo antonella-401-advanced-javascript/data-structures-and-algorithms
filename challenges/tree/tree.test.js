@@ -1,4 +1,4 @@
-const { Node, BinaryTree } = require('./tree');
+const { BinaryTree } = require('./tree');
 
 describe('Binary tree', () => {
 
@@ -26,5 +26,44 @@ describe('Binary tree', () => {
     expect(tree.root.value).toBe(5);
     expect(tree.root.left.value).toBe(3);
     expect(tree.root.right.value).toBe(7);
+  });
+
+  it('Can successfully return a collection from a preorder traversal', () => {
+    const tree = new BinaryTree();
+
+    tree.add(10);
+    tree.add(4);
+    tree.add(12);
+    tree.add(1);
+    tree.add(5);
+    tree.add(11);
+
+    expect(tree.preOrder(tree.root)).toEqual([10, 4, 1, 5, 12, 11]);
+  });
+
+  it('Can successfully return a collection from a inorder traversal', () => {
+    const tree = new BinaryTree();
+
+    tree.add(10);
+    tree.add(4);
+    tree.add(12);
+    tree.add(1);
+    tree.add(5);
+    tree.add(11);
+
+    expect(tree.inOrder(tree.root)).toEqual([1, 4, 5, 10, 11, 12]);
+  });
+
+  it('Can successfully return a collection from postorder traversal', () => {
+    const tree = new BinaryTree();
+
+    tree.add(10);
+    tree.add(4);
+    tree.add(12);
+    tree.add(1);
+    tree.add(5);
+    tree.add(11);
+
+    expect(tree.postOrder(tree.root)).toEqual([1, 5, 4, 11, 12, 10]);
   });
 });

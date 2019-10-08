@@ -9,27 +9,34 @@ class Node {
 class BinaryTree {
   constructor() {
     this.root = null;
+    this.traversalArray = [];
   }
 
   preOrder(node) {
-    if(node !== null) {
-      this.preorder(node.left);
-      this.preorder(node.right);
+    if(node) {
+      this.traversalArray.push(node.value);
+      this.preOrder(node.left);
+      this.preOrder(node.right);
     }
+    return this.traversalArray;
   }
 
   inOrder(node) {
-    if(node !== null) {
-      this.inorder(node.left);
-      this.inorder(node.right);
+    if(node) {
+      this.inOrder(node.left);
+      this.traversalArray.push(node.value);
+      this.inOrder(node.right);
     }
+    return this.traversalArray;
   }
 
   postOrder(node) {
-    if(node !== null) {
-      this.postorder(node.left);
-      this.postorder(node.right);
+    if(node) {
+      this.postOrder(node.left);
+      this.postOrder(node.right);
+      this.traversalArray.push(node.value);
     }
+    return this.traversalArray;
   }
 
   add(value) {
