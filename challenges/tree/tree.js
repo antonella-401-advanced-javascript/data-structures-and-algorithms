@@ -83,6 +83,30 @@ class BinaryTree {
     this.add(this);
     return has;
   }
+
+  breadthFirst(tree) {
+    const queue = [];
+
+    if(tree === null) {
+      return;
+    }
+
+    queue.push(tree);
+
+    while(queue.length > 0) {
+      const currentNode = queue[0];
+
+      if(currentNode.left !== null) {
+        queue.push(currentNode.left);
+      }
+      if(currentNode.right !== null) {
+        queue.push(currentNode.right);
+      }
+      this.traversalArray.push(currentNode.value);
+      queue.shift();
+    }
+    return this.traversalArray;
+  }
 }
 
 module.exports = {
