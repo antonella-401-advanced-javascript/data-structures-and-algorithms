@@ -67,7 +67,7 @@ describe('Binary tree', () => {
     expect(tree.postOrder(tree.root)).toEqual([1, 5, 4, 11, 12, 10]);
   });
 
-  it('can succesfully return a collection from breadth first traversal', () => {
+  it('can successfully return a collection from breadth first traversal', () => {
     const tree = new BinaryTree();
 
     tree.add(10);
@@ -78,5 +78,18 @@ describe('Binary tree', () => {
     tree.add(5);
 
     expect(tree.breadthFirst(tree.root)).toEqual([10, 4, 12, 1, 5, 11]);
+  });
+
+  it('can successfully find the maximum value', () => {
+    const tree = new BinaryTree();
+
+    tree.add(10);
+    tree.add(4);
+    tree.add(1);
+    tree.add(12);
+    tree.add(11);
+    tree.add(5);
+
+    expect(tree.findMaximumValue(tree)).toEqual(12);
   });
 });

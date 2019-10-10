@@ -107,6 +107,15 @@ class BinaryTree {
     }
     return this.traversalArray;
   }
+
+  findMaximumValue(tree) {
+    let curr = tree.root;
+    
+    while(curr.right !== null) {
+      curr = curr.right;
+    }
+    return curr.value;
+  }
 }
 
 module.exports = {
