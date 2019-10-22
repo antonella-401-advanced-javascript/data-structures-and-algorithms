@@ -3,7 +3,8 @@ const rev = transaction => {
   transaction.forEach((stamp, i) => {
     let rev = transaction[i].price;
     let date = new Date(stamp.timestamp);
-    let keyDate = date.toString().substring(0, 15);
+    let utc = date.toUTCString();
+    let keyDate = utc.substring(0, 16);
   
     if(!revenue[keyDate]) {
       revenue[keyDate] = rev;
