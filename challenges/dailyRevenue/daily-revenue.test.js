@@ -407,7 +407,7 @@ describe('Total revenue', () => {
   it('adds the revenue of each day', () => {
     const transaction = rev(transactions);
 
-    expect(transaction).toEqual( {
+    expect(transaction).toEqual({
       'Thu, 18 Jul 2019': 25,
       'Thu, 04 Jul 2019': 47,
       'Tue, 09 Jul 2019': 18,
