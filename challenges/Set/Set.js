@@ -29,11 +29,11 @@ class Set {
 
   intersection(set) {
     let newSet = new Set();
-    this.array.forEach(item => {
-      if(set.has(item)) {
+    for(let item of set.array) {
+      if(this.has(item)) {
         newSet.add(item);
       }
-    });
+    }
     return newSet;
   }
 
