@@ -13,7 +13,6 @@ const rev = transaction => {
       revenue[keyDate] += rev;
     }
   });
-  console.log(revenue);
   return revenue;
 };
 
