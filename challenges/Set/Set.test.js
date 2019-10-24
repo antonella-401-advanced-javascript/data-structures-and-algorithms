@@ -33,16 +33,86 @@ describe('Set class', () => {
   });
 
   it('takes a set returns a new Set with the intersection of those sets', () => {
-    const setA = new Set([2, 1, 10]);
+    const setA = new Set();
     setA.add(2);
     setA.add(1);
     setA.add(10);
-    const setB = new Set([1, 0, 10]);
+    const setB = new Set();
     setB.add(1);
     setB.add(0);
     setB.add(10);
     const intersection = setA.intersection(setB);
 
     expect(intersection.array).toEqual([1, 10]);
+  });
+
+  it('takes a set and returns a new Set with the union of those sets', () => {
+    const setA = new Set();
+    setA.add(2);
+    setA.add(1);
+    setA.add(10);
+    const setB = new Set();
+    setB.add(1);
+    setB.add(0);
+    setB.add(10);
+    const union = setA.union(setB);
+
+    expect(union.array).toEqual([2, 1, 10, 0]);
+  });
+
+  it('takes a set and returns a new Set with the union of those sets', () => {
+    const setA = new Set();
+    setA.add(2);
+    setA.add(1);
+    setA.add(10);
+    const setB = new Set();
+    setB.add(1);
+    setB.add(0);
+    setB.add(10);
+    const diff = setA.difference(setB);
+
+    expect(diff.array).toEqual([2, 0]);
+  });
+
+  it('takes two sets and returns a new Set with the intersection of those sets', () => {
+    const setA = new Set();
+    setA.add(2);
+    setA.add(1);
+    setA.add(10);
+    const setB = new Set();
+    setB.add(1);
+    setB.add(0);
+    setB.add(10);
+    const sta = Set.staticIntersection(setA, setB);
+
+    expect(sta.array).toEqual([1, 10]);
+  });
+
+  it(' takes two sets and returns a new Set with the union of those sets', () => {
+    const setA = new Set();
+    setA.add(2);
+    setA.add(1);
+    setA.add(10);
+    const setB = new Set();
+    setB.add(1);
+    setB.add(0);
+    setB.add(10);
+    const sta = Set.staticUnion(setA, setB);
+
+    expect(sta.array).toEqual([2, 1, 10, 0]);
+  });
+
+  it('takes two sets and returns a new Set with the difference of those sets', () => {
+    const setA = new Set();
+    setA.add(2);
+    setA.add(1);
+    setA.add(10);
+    const setB = new Set();
+    setB.add(1);
+    setB.add(0);
+    setB.add(10);
+    const sta = Set.staticDifference(setA, setB);
+
+    expect(sta.array).toEqual([2, 0]);
   });
 });
