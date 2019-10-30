@@ -8,7 +8,7 @@ const getNums = dir => {
 
 const getPath = dir => {
   return fs.readdir(dir)
-    .then(files => files.map(name => './folder/' + name))
+    .then(files => files.map(name => './challenges/oopsFiles/folder/' + name))
     .catch(err => console.log(err));
 };
 
@@ -28,7 +28,7 @@ const getStamp = arr => {
 
 const rename = (paths, fileNumbers, contents, timestamps) => {
   return Promise.all([paths.forEach((file, index) => {
-    fs.rename(file, `./folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
+    fs.rename(file, `./challenges/oopsFiles/folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
       if(err) {
         throw err;
       }
@@ -58,7 +58,7 @@ const fileRenamer = directory => {
     .catch(err => console.log(err));
 };
 
-fileRenamer('./challenges/oopsFiles/folder');
+fileRenamer('./challenges/oopsFiles/folder/');
 
 module.exports = {
   getNums,

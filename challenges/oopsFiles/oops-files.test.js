@@ -1,6 +1,6 @@
 const { getNums, getPath, getContent, getStamp } = require('./oops-files');
 
-const folder = './folder';
+const folder = './folder/';
 
 describe('File rename', () => {
 
@@ -11,7 +11,7 @@ describe('File rename', () => {
           '0', '16', '22'
         ]);
       })
-      .catch(err => console.log(err));
+      .catch(err => err);
   });
 
   it('gets an array of the file names', () => {
