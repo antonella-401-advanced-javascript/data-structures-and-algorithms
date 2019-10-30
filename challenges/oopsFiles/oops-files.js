@@ -58,7 +58,7 @@ const fileRenamer = directory => {
     .catch(err => console.log(err));
 };
 
-// fileRenamer('./challenges/oopsFiles/folder');
+fileRenamer('./challenges/oopsFiles/folder');
 
 module.exports = {
   getNums,
