@@ -1,13 +1,13 @@
-const fs = require('fs').promises;
+const fs = require('fs');
 
 const getNums = dir => {
-  return fs.readdir(dir)
+  return fs.promises.readdir(dir)
     .then(files => files.map(name => name.slice(0, name.length - 4)))
     .catch(err => console.log(err));
 };
 
 const getPath = dir => {
-  return fs.readdir(dir)
+  return fs.promises.readdir(dir)
     .then(files => files.map(name => dir + name))
     .catch(err => console.log(err));
 };
