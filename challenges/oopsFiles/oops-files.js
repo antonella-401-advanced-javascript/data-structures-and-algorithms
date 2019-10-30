@@ -8,7 +8,7 @@ const getNums = dir => {
 
 const getPath = dir => {
   return fs.readdir(dir)
-    .then(files => files.map(name => './challenges/oopsFiles/folder/' + name))
+    .then(files => files.map(name => dir + name))
     .catch(err => console.log(err));
 };
 
