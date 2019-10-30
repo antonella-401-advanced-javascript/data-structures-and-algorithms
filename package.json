@@ -19,7 +19,9 @@
     "url": "https://github.com/antonella-401-advanced-javascript/data-structures-and-algorithms/issues"
   },
   "homepage": "https://github.com/antonella-401-advanced-javascript/data-structures-and-algorithms#readme",
-  "dependencies": {},
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
   "devDependencies": {
     "eslint": "^6.4.0",
     "jest": "^24.9.0"
