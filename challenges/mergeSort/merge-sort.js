@@ -44,3 +44,5 @@ const merge = (left, right, arr) => {
   }
   return arr;
 };
+
+module.exports = mergeSort;
