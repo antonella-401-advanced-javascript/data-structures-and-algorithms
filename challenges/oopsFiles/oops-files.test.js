@@ -1,4 +1,4 @@
-const  { getFileNumbers, getPaths, getContents, getTimestamps } = require('./oops-files.js');
+const { getFileNumbers, getPaths, getContents, getTimestamps } = require('./oops-files.js');
 
 const folder = './folder/';
 
