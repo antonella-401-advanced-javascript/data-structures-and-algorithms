@@ -27,7 +27,7 @@ const getStamp = arr => {
 
 const rename = (paths, fileNumbers, contents, timestamps) => {
   return Promise.all(paths.forEach((file, index) => {
-    fs.rename(file, `./challenges/oopsFiles/folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
+    fs.promises.rename(file, `./challenges/oopsFiles/folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
       if(err) {
         throw err;
       }
