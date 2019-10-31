@@ -19,3 +19,12 @@ const partition = (arr, left, right) => {
     return low + 1;
   }
 };
+
+const swap = (arr, i, low) => {
+  let temp;
+  temp = arr[i];
+  arr[i] = arr[low];
+  arr[low] = temp;
+};
+
+module.exports = quickSort;
