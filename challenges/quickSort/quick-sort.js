@@ -1,9 +1,10 @@
-const quickSort = (arr, left, right) =>  {
+const quickSort = (arr, left, right) => {
   if(left < right) {
     let position = partition(arr, left, right);
     quickSort(arr, left, position - 1);
     quickSort(arr, position + 1, right);
   }
+  return arr;
 };
 
 const partition = (arr, left, right) => {
@@ -15,9 +16,9 @@ const partition = (arr, left, right) => {
       low++;
       swap(arr, i, low);
     }
-    swap(arr, right, low + 1);
-    return low + 1;
   }
+  swap(arr, right, low + 1);
+  return low + 1;
 };
 
 const swap = (arr, i, low) => {
