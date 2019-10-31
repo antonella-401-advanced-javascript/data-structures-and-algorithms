@@ -1,4 +1,5 @@
-const mergeSort = (arr) => {
+const mergeSort = arr => {
+  console.log(arr);
   const n = arr.length;
 
   if(n > 1) {
@@ -9,7 +10,7 @@ const mergeSort = (arr) => {
     mergeSort(right);
     merge(left, right, arr);
   }
-  return arr;
+  return this;
 };
 
 const merge = (left, right, arr) => {
