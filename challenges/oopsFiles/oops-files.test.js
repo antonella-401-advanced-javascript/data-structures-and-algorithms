@@ -1,6 +1,6 @@
 const { getFileNumbers, getPaths, getContents, getTimestamps } = require('./oops-files.js');
 
-const folder = './folder/';
+const folder = './folder';
 
 describe('File rename', () => {
 
