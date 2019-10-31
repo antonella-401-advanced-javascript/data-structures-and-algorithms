@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/antonella-401-advanced-javascript/data-structures-and-algorithms#readme",
   "dependencies": {
+    "file-system": "^2.2.2",
     "fs": "0.0.1-security"
   },
   "devDependencies": {

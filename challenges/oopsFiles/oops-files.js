@@ -2,60 +2,53 @@ const fs = require('fs');
 
 const getNums = dir => {
   return fs.promises.readdir(dir)
-    .then(files => files.map(name => name.slice(0, name.length - 4)))
-    .catch(err => console.log(err));
+    .then(files => {
+      return files.map(name => name.slice(0, name.length - 4));
+    });
 };
 
 const getPath = dir => {
   return fs.promises.readdir(dir)
-    .then(files => files.map(name => dir + name))
-    .catch(err => console.log(err));
+    .then(files => {
+      return files.map(name => './challenges/oopsFiles/folder/' + name);
+    });
 };
 
 const getContent = arr => {
-  return Promise.all(arr.map(path => fs.readFile(path, { encoding: 'utf8' })))
-    .catch(err => console.log(err));
+  return Promise.all(arr.map(path => fs.promises.readFile(path, 'utf8')));
 };
 
 const getStamp = arr => {
   return Promise.all(arr.map(path => {
-    return fs.stat(path)
-      .then(stat => stat.mtime)
-      .catch(err => console.log(err));
-  }))
-    .catch(err => console.log(err));
+    return fs.promises.stat(path)
+      .then(stat => stat.mtime);
+  }));
 };
 
 const rename = (paths, fileNumbers, contents, timestamps) => {
-  return Promise.all([paths.forEach((file, index) => {
+  return Promise.all(paths.forEach((file, index) => {
     fs.rename(file, `./challenges/oopsFiles/folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
       if(err) {
         throw err;
       }
     });
-  })])
-    .catch(err => console.log(err));
+  }));
 };
 
-
 const fileRenamer = directory => {
-  let pathArr;
-  let numArr;
-  let contArr;
   return getNums(directory)
-    .then(fileNumbers => (
-      numArr = fileNumbers,
-      getPath(directory)))
-    .then(filePaths => (
-      pathArr = filePaths,
-      getContent(filePaths)))
-    .then(fileContents => (
-      contArr = fileContents,
-      getStamp(pathArr)))
-    .then(timestamps => {
-      return rename(pathArr, numArr, contArr, timestamps);
-    })
-    .catch(err => console.log(err));
+    .then(fileNumbers => {
+      return getPath(directory)
+        .then(filePaths => {
+          return getContent(filePaths)
+            .then(fileContents => {
+              return getStamp(filePaths)
+                .then(timestamps => {
+                  return rename(filePaths, fileNumbers, fileContents, timestamps);
+                });
+            });
+        });
+    });
 };
 
 fileRenamer('./challenges/oopsFiles/folder/');
