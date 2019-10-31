@@ -1,16 +1,17 @@
 const mergeSort = arr => {
-  console.log(arr);
   const n = arr.length;
-
+  let newArr;
+  
   if(n > 1) {
-    const mid = n / 2;
-    const left = arr[0, mid];
-    const right = arr[mid, n];
+    let mid = Math.floor(n / 2);
+    let left = arr.slice(0, mid);
+    let right = arr.slice(mid, n);
+
     mergeSort(left);
     mergeSort(right);
-    merge(left, right, arr);
+    newArr = merge(left, right, arr);
   }
-  return this;
+  return newArr;
 };
 
 const merge = (left, right, arr) => {
@@ -18,29 +19,27 @@ const merge = (left, right, arr) => {
   let j = 0;
   let k = 0;
 
-  while(1 < left.length && j < right.length) {
+  while(i < left.length && j < right.length) {
     if(left[i] <= right[j]) {
       arr[k] = left[i];
-      i = i + 1;
-    }
-    else {
+      i += 1;
+    } else {
       arr[k] = right[j];
+      j += 1;
     }
-    k = k + 1;
+    k++;
   }
-
   if(i === left.length) {
-    while(i < right.length) {
+    while(j < right.length) {
       arr[k] = right[j];
-      k = k + 1;
-      i = i + 1;
+      k += 1;
+      j += 1;
     }
-  }
-  else {
+  } else {
     while(i < left.length) {
       arr[k] = left[i];
-      k = k + 1;
-      i = i + 1;
+      k += 1;
+      i += 1;
     }
   }
   return arr;

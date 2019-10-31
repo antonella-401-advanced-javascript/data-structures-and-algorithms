@@ -2,8 +2,8 @@ const mergeSort = require('./merge-sort');
 
 describe('Merge sort', () => {
   it('sorts array given', () => {
-    const arr = [27, 9, 1995];
+    const arr = [3, 9, 4];
 
-    expect(mergeSort(arr)).toEqual([9, 27, 1995]);
+    expect(mergeSort(arr)).toEqual([3, 4, 9]);
   });
 });
