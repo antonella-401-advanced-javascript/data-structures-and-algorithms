@@ -1,33 +1,35 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 
-const getNums = dir => {
-  return fs.promises.readdir(dir)
+const getFileNumbers = directory => {
+  return fs.readdir(directory)
     .then(files => {
-      return files.map(name => name.slice(0, name.length - 4));
+      return files.map(entry => entry.slice(0, entry.length - 4));
     });
 };
 
-const getPath = dir => {
-  return fs.promises.readdir(dir)
+const getPaths = directory => {
+  return fs.readdir(directory)
     .then(files => {
-      return files.map(name => './challenges/oopsFiles/folder/' + name);
+      return files.map(entry => './challenges/oopsFiles/folder/' + entry);
     });
 };
 
-const getContent = arr => {
-  return Promise.all(arr.map(path => fs.promises.readFile(path, 'utf8')));
+const getContents = pathArray => {
+  return Promise.all(pathArray.map(path => fs.readFile(path, { encoding: 'utf8' })));
 };
 
-const getStamp = arr => {
-  return Promise.all(arr.map(path => {
-    return fs.promises.stat(path)
-      .then(stat => stat.mtime);
+const getTimestamps = pathArray => {
+  return Promise.all(pathArray.map(path => {
+    return fs.stat(path)
+      .then(stats => {
+        return stats.mtime;
+      });
   }));
 };
 
-const rename = (paths, fileNumbers, contents, timestamps) => {
-  return Promise.all(paths.forEach((file, index) => {
-    fs.promises.rename(file, `./challenges/oopsFiles/folder/${contents[index]}-${fileNumbers[index]}-${timestamps[index]}`, err => {
+const rename = (pathArray, fileNumberArray, contentsArray, timestampsArray) => {
+  return Promise.all(pathArray.forEach((file, index) => {
+    fs.rename(file, `./challenges/oopsFiles/folder/${contentsArray[index]}-${fileNumberArray[index]}-${timestampsArray[index]}`, err => {
       if(err) {
         throw err;
       }
@@ -36,13 +38,13 @@ const rename = (paths, fileNumbers, contents, timestamps) => {
 };
 
 const fileRenamer = directory => {
-  return getNums(directory)
+  return getFileNumbers(directory)
     .then(fileNumbers => {
-      return getPath(directory)
+      return getPaths(directory)
         .then(filePaths => {
-          return getContent(filePaths)
+          return getContents(filePaths)
             .then(fileContents => {
-              return getStamp(filePaths)
+              return getTimestamps(filePaths)
                 .then(timestamps => {
                   return rename(filePaths, fileNumbers, fileContents, timestamps);
                 });
@@ -53,9 +55,4 @@ const fileRenamer = directory => {
 
 fileRenamer('./challenges/oopsFiles/folder/');
 
-module.exports = {
-  getNums,
-  getPath,
-  getContent,
-  getStamp
-};
+module.exports = { getFileNumbers, getPaths, getContents, getTimestamps };

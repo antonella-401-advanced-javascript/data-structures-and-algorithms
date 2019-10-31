@@ -1,11 +1,11 @@
-const { getNums, getPath, getContent, getStamp } = require('./oops-files.js');
+const  { getFileNumbers, getPaths, getContents, getTimestamps } = require('./oops-files.js');
 
 const folder = './folder/';
 
 describe('File rename', () => {
 
   it('gets an array of the file numbers', () => {
-    getNums(folder)
+    getFileNumbers(folder)
       .then(fileNumbers => {
         expect(fileNumbers).toEqual([
           '0', '16', '22'
@@ -15,7 +15,7 @@ describe('File rename', () => {
   });
 
   it('gets an array of the file names', () => {
-    getPath(folder)
+    getPaths(folder)
       .then(files => {
         expect(files).toEqual([
           './folder/0.txt', './folder/16.txt',
@@ -26,9 +26,9 @@ describe('File rename', () => {
   });
 
   it('gets an array of the file contents', () => {
-    getPath(folder)
+    getPaths(folder)
       .then(files => {
-        return getContent(files);
+        return getContents(files);
       })
       .then(results => {
         expect(results).toEqual([
@@ -41,9 +41,9 @@ describe('File rename', () => {
   });
 
   it('gets an array of the timestamps', () => {
-    getPath(folder)
+    getPaths(folder)
       .then(files => {
-        return getStamp(files)
+        return getTimestamps(files)
           .then(results => {
             expect(results).toEqual(['2019-10-30T17:44:21.483Z', '2019-10-30T17:44:07.694Z', '2019-10-30T17:44:16.619Z']);
           });
