@@ -1,0 +1,1 @@
+const Hashtable = require('./hashtable');
