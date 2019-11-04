@@ -16,7 +16,7 @@ class Hashtable {
       this.bucket[index] = [];
     }
 
-    this.bucket[index].push([value]);
+    this.bucket[index].push(value);
   }
 
   get(key) {
@@ -25,12 +25,21 @@ class Hashtable {
     if(!this.bucket[index]) return null;
 
     for(let i = 0; i < this.size; i++) {
-      if(this.bucket[i] === index) {
+      if(this.bucket[i] === this.bucket[index]) {
         return this.bucket[i];
       }
     }
   }
-}
 
+  contains(key) {
+    const index = this.hash(key);
+
+    if(this.bucket[index]) {
+      return true;
+    }
+
+    return false;
+  }
+}
 
 module.exports = Hashtable;
