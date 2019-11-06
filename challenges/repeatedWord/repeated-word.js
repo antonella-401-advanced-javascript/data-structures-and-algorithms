@@ -11,8 +11,8 @@ const repeat = (str) => {
     else {
       answer = arr[i];
     }
-    console.log(answer);
   }
+  return answer;
 };
 
 module.exports = repeat;
