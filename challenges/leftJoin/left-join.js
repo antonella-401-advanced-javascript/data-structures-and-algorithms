@@ -1,6 +1,5 @@
 const leftJoin = (tableOne, tableTwo) => {
   let res = [];
-  console.log(tableOne.bucket[9][0]);
   for(let i = 0; i < tableOne.bucket.length; i++) {
     if(tableOne.bucket[i] !== undefined) {
       res.push(tableOne.bucket[i]);
@@ -15,6 +14,11 @@ const leftJoin = (tableOne, tableTwo) => {
       });
     }
   }
+  res.forEach(result => {
+    if(result.length === 2) {
+      result.push(null);
+    }
+  });
   console.log(res);
   return res;
 };

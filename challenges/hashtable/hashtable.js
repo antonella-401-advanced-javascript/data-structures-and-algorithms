@@ -15,7 +15,6 @@ class Hashtable {
     if(!this.bucket[index]) {
       this.bucket[index] = [key];
     }
-
     this.bucket[index].push(value);
   }
 
