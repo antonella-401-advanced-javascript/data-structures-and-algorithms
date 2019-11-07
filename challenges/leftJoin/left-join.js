@@ -19,7 +19,7 @@ const leftJoin = (tableOne, tableTwo) => {
       result.push(null);
     }
   });
-  console.log(res);
+  
   return res;
 };
 
