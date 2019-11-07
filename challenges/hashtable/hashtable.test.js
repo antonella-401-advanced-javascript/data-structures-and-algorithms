@@ -9,14 +9,14 @@ describe('Hash table functionality', () => {
   it('adds a key value pair', () => {
     const testTable = new Hashtable();
     testTable.add('antonella', 'test');
-    expect(testTable.get('antonella')).toEqual(['test']);
+    expect(testTable.get('antonella')).toEqual(['antonella', 'test']);
   });
 
   it('adds value when the key already exists', () => {
     const testTable = new Hashtable();
     testTable.add('antonella', 'test1');
     testTable.add('antonella', 'test2');
-    expect(testTable.get('antonella')).toEqual(['test1', 'test2']);
+    expect(testTable.get('antonella')).toEqual(['antonella', 'test1', 'test2']);
   });
 
   it('returns null in no key does not exists', () => {
